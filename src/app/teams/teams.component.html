@@ -1,0 +1,28 @@
+<!--String team name for the first example of string interpolation > page 12-->
+<!--<h2>{{ team }}</h2>-->
+
+<!--After we created team model > page 16-->
+<!--<h2>{{ team.name }}</h2>-->
+<!--<h3>Ranking points: {{ team.rankingPoints }}</h3>-->
+<!--<img [src] = "team.flagPath" width= "140" height= "100">-->
+
+<!--Two way data binding example > page 17-->
+<!--<div>-->
+<!--  <label for="name">Team name: </label>-->
+<!--  <input id="name" [(ngModel)]= "team.name" placeholder="name">-->
+<!--</div>-->
+
+@for (team of teams; track team.name; let i = $index) {
+  <div class="teams">
+    <button type="button">
+      <span class="badge">{{i+1}}.</span>
+      <span class="name">{{team.name}}</span>
+      @if(team.flagPath) {
+        <img class="flag" [src]="team.flagPath">
+      } @else {
+        Missing
+      }
+    </button>
+  </div>
+}
+
