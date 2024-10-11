@@ -14,5 +14,4 @@ export class TournamentGroupsComponent {
     teams = TEAMS;
     groups = GROUPS;
 
-  protected readonly GROUPS = GROUPS;
 }

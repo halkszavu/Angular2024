@@ -1,5 +1,5 @@
 <!--Iterate on groups-->
-@for (group of GROUPS; track group.id){
+@for (group of groups; track group.id){
   <h2>{{group.name}}</h2>
   <!--Iterate on teams-->
   @for (team of teams; track team.id; let i = $index) {
