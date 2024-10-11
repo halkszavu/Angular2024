@@ -27,13 +27,6 @@
 }
 
 @if (selectedTeam ){
-<div>
-  <h2>{{selectedTeam.name | uppercase }} Details </h2>
-  <h3> Ranking points : {{selectedTeam.rankingPoints}}</h3>
-  <div>
-    <label for = "team ranking ">Team Ranking : </label>
-    <input id = "team ranking " [(ngModel)]= "selectedTeam.rankingPoints " placeholder="ranking point">
-  </div>
-</div>
+  <app-team-details [team]="selectedTeam" (clearDetails)="clearSelectedTeam()"></app-team-details>
 }
 

@@ -3,11 +3,12 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {TEAMS} from "./model/team-list";
 import { Team } from './model/teams.model';
+import { TeamDetailsComponent } from '../team-details/team-details.component';
 
 @Component({
   selector: 'app-teams',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, TeamDetailsComponent],
   templateUrl: './teams.component.html',
   styleUrl: './teams.component.css'
 })
@@ -25,4 +26,6 @@ export class TeamsComponent {
   onSelect(team: Team){
     this.selectedTeam = team;
   }
+
+  clearSelectedTeam() { this.selectedTeam = undefined;}
 }
