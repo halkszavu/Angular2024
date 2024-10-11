@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appTeamButton]',
@@ -6,6 +6,8 @@ import { Directive } from '@angular/core';
 })
 export class TeamButtonDirective {
 
-  constructor() { }
+  constructor(elementRef : ElementRef) {
+    elementRef.nativeElement.style.backgroundColor = "#F3F9E7"
+   }
 
 }

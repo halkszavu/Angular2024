@@ -4,11 +4,12 @@ import {CommonModule} from "@angular/common";
 import {TEAMS} from "./model/team-list";
 import { Team } from './model/teams.model';
 import { TeamDetailsComponent } from '../team-details/team-details.component';
+import { TeamButtonDirective } from '../directives/team-button.directive';
 
 @Component({
   selector: 'app-teams',
   standalone: true,
-  imports: [FormsModule, CommonModule, TeamDetailsComponent],
+  imports: [FormsModule, CommonModule, TeamDetailsComponent, TeamButtonDirective],
   templateUrl: './teams.component.html',
   styleUrl: './teams.component.css'
 })

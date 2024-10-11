@@ -14,7 +14,7 @@
 
 @for (team of teams; track team.name; let i = $index) {
   <div class="teams">
-    <button type="button" (click) = "onSelect(team)">
+    <button appTeamButton type="button" (click) = "onSelect(team)">
       <span class="badge">{{i+1}}.</span>
       <span class="name">{{team.name}}</span>
       @if(team.flagPath) {
