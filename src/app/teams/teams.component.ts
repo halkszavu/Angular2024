@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {TEAMS} from "./model/team-list";
+import { Team } from './model/teams.model';
 
 @Component({
   selector: 'app-teams',
@@ -19,4 +20,8 @@ export class TeamsComponent {
 
   /*Mock team list from team-list.ts file*/
   teams = TEAMS;
+
+  onSelect(team: Team){
+    
+  }
 }
