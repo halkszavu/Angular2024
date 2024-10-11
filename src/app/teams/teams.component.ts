@@ -17,11 +17,12 @@ export class TeamsComponent {
 
   // After we created team model  > page 16
   // team : Team = new Team(10,"Hungary", 1517.77, "https://www.worldometers.info/img/flags/hu-flag.gif");
+  selectedTeam : Team | undefined;
 
   /*Mock team list from team-list.ts file*/
   teams = TEAMS;
 
   onSelect(team: Team){
-    
+    this.selectedTeam = team;
   }
 }
