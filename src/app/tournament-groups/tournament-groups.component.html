@@ -1,21 +1,5 @@
 <!--Iterate on groups-->
 @for (group of groups; track group.id){
   <h2>{{group.name}}</h2>
-  <!--Iterate on teams-->
-  @for (team of teams; track team.id; let i = $index) {
-    <!--If team is in teams of group-->
-    @if (group.teams.indexOf(team.id) > -1){
-      <div class="teams">
-        <button type="button">
-          <span class="badge">{{i+1}}.</span>
-          <span class="name">{{team.name}}</span>
-          @if(team.flagPath) {
-            <img class="flag" [src]="team.flagPath">
-          } @else {
-            Missing
-          }
-        </button>
-      </div>
-    }
-  }
+  <app-teams [teamsOfGroup]="group.teams"></app-teams>
 }

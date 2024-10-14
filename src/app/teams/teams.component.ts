@@ -1,4 +1,4 @@
-import {Component, ElementRef, QueryList, SimpleChanges, ViewChild, ViewChildren} from '@angular/core';
+import {Component, ElementRef, Input, QueryList, SimpleChanges, ViewChild, ViewChildren} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {TEAMS} from "./model/team-list";
@@ -27,6 +27,8 @@ export class TeamsComponent {
 
   //Add new property to component > this is the selected team
   selectedTeam : Team | undefined;
+
+  @Input() teamsOfGroup:number[]|undefined;
 
   //Viewchild to access the child component > lab 2 page 15
   @ViewChild(TeamDetailsComponent) teamDetailsComponent!:TeamDetailsComponent;

@@ -6,7 +6,7 @@ import {TeamsComponent} from "./teams/teams.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TeamsComponent],
+  imports: [RouterOutlet, TournamentGroupsComponent/*, TeamsComponent*/],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

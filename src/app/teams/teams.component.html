@@ -14,7 +14,8 @@
 <div style="display: flex">
   <div style="width: 50%">
     @for (team of teams; track team.name; let i = $index) {
-      <div #teamDiv class="teams">
+      @if(teamsOfGroup && teamsOfGroup.indexOf(team.id) > -1){
+        <div #teamDiv class="teams">
         <!--Event handling onSelect > communicate with .ts code > lab 2 page 4 -->
 <!--        <button type="button"-->
 <!--                (click)="onSelect(team)"-->
@@ -28,21 +29,22 @@
 <!--                  (click)="onSelect(team)"-->
 <!--                  [ngStyle]="team === selectedTeam ? {color:'#F3F9E7'} : {color:'#7297d6'}"-->
 <!--                  [ngClass]="team === selectedTeam ? 'selected-team' : ''">-->
-        <!--Custom attribute directive appTeamButton > lab 2 page 24-->
-        <button type="button"
-                appTeamButton
-                (click)="onSelect(team)"
-                [ngStyle]="team === selectedTeam ? {color:'#F3F9E7'} : {color:'#7297d6'}"
-                [ngClass]="team === selectedTeam ? 'selected-team' : ''">
-          <span class="badge">{{i+1}}.</span>
-          <span class="name">{{team.name}}</span>
-          @if(team.flagPath) {
-            <img class="flag" [src]="team.flagPath">
-          } @else {
-            Missing
-          }
-        </button>
-      </div>
+          <!--Custom attribute directive appTeamButton > lab 2 page 24-->
+          <button type="button"
+                  appTeamButton
+                  (click)="onSelect(team)"
+                  [ngStyle]="team === selectedTeam ? {color:'#F3F9E7'} : {color:'#7297d6'}"
+                  [ngClass]="team === selectedTeam ? 'selected-team' : ''">
+            <span class="badge">{{i+1}}.</span>
+            <span class="name">{{team.name}}</span>
+            @if(team.flagPath) {
+              <img class="flag" [src]="team.flagPath">
+            } @else {
+              Missing
+            }
+          </button>
+        </div>
+      }
     }
   </div>
   <div style="width: 50%">
