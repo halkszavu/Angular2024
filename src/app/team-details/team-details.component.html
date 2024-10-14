@@ -1,0 +1,12 @@
+@if(team){
+    <div>
+        <h2>{{team.name | uppercase}} Details</h2>
+        <div>
+            <label for = "team-ranking">Team Ranking: </label>
+            <input id = "team-ranking" [(ngModel)]= "team.rankingPoints"
+                   placeholder= "ranking point">
+        </div>
+        <!--Emit click event > lab 2 page 13-->
+        <button type="button" (click)=clearDetails.emit()>CLEAR</button>
+    </div>
+}
