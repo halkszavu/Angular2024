@@ -14,7 +14,7 @@
 <div style="display: flex">
   <div style="width: 50%">
     @for (team of teams; track team.name; let i = $index) {
-      @if(teamsOfGroup && teamsOfGroup.indexOf(team.id) > -1){
+<!--      @if(teamsOfGroup && teamsOfGroup.indexOf(team.id) > -1){-->
         <div #teamDiv class="teams">
         <!--Event handling onSelect > communicate with .ts code > lab 2 page 4 -->
 <!--        <button type="button"-->
@@ -45,7 +45,7 @@
           </button>
         </div>
       }
-    }
+<!--    }-->
   </div>
   <div style="width: 50%">
     <!--Details section > lab 2 page 6-->
