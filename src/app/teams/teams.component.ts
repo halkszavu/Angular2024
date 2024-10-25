@@ -49,7 +49,7 @@ export class TeamsComponent {
   ngOnInit(){
     console.log("OnInit happened");
 
-    this.intiTeams();
+    this.initTeams();
   }
 
   //After view init change the left border of the third element > lab 2 page 16
@@ -71,6 +71,7 @@ export class TeamsComponent {
   }
 
   initTeams() : void{
-    this.teams = this.teamService.getTeams();
+    this.teamService.getTeams()
+      .subscribe(x => this.teams = x);
   }
 }
