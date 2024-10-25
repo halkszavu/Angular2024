@@ -8,10 +8,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TeamService {
+  private teamsUrl = 'api/teams'; //URL to web api
 
   constructor(private http : HttpClient) { }
   
   getTeams(): Observable<Team[]>{
-    return of(TEAMS);
+    return this.http.get<Team[]>(this.teamsUrl);
   }
 }

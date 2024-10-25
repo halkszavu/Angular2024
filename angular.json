@@ -62,7 +62,8 @@
               "buildTarget": "nations-league:build:production"
             },
             "development": {
-              "buildTarget": "nations-league:build:development"
+              "buildTarget": "nations-league:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
