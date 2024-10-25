@@ -5,6 +5,7 @@ import {TEAMS} from "./model/team-list";
 import {Team} from "./model/teams.model";
 import {TeamDetailsComponent} from "../team-details/team-details.component";
 import {TeamButtonDirective} from "../directives/team-button.directive";
+import { TeamService } from '../services/team.service';
 
 @Component({
   selector: 'app-teams',
@@ -16,17 +17,12 @@ import {TeamButtonDirective} from "../directives/team-button.directive";
   styleUrl: './teams.component.css'
 })
 export class TeamsComponent {
-  // String team name for the first example of string interpolation > page 12
-  // team : string = "Hungary";
-
-  // After we created team model  > page 16
-  // team : Team = new Team(10,"Hungary", 1517.77, "https://www.worldometers.info/img/flags/hu-flag.gif");
-
-  /*Mock team list from team-list.ts file*/
-  teams = TEAMS;
+  teams : Team[] = [];
 
   //Add new property to component > this is the selected team
   selectedTeam : Team | undefined;
+
+  constructor(private teamService: TeamService) {}
 
   @Input() teamsOfGroup:number[]|undefined;
 
@@ -52,6 +48,8 @@ export class TeamsComponent {
 
   ngOnInit(){
     console.log("OnInit happened");
+
+    this.intiTeams();
   }
 
   //After view init change the left border of the third element > lab 2 page 16
@@ -72,5 +70,7 @@ export class TeamsComponent {
     this.selectedTeam = undefined;
   }
 
-
+  initTeams() : void{
+    this.teams = this.teamService.getTeams();
+  }
 }
