@@ -8,5 +8,13 @@
         </div>
         <!--Emit click event > lab 2 page 13-->
         <button type="button" (click)=clearDetails.emit()>CLEAR</button>
+        @if(countryService.countryData){
+          <a [href]="countryService.countryData.maps.googleMaps" type="button" target="_blank">MAP</a>
+        }
     </div>
 }
+<!--@if(countryService.countryData){-->
+<!--  <div>-->
+<!--    <pre>{{countryService.countryData | json}}</pre>-->
+<!--  </div>-->
+<!--}-->

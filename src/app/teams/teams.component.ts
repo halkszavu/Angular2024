@@ -1,10 +1,21 @@
-import {Component, ElementRef, Input, QueryList, SimpleChanges, ViewChild, ViewChildren} from '@angular/core';
+import {
+  Component,
+  computed,
+  ElementRef,
+  Input,
+  QueryList,
+  signal,
+  SimpleChanges,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {TEAMS} from "./model/team-list";
 import {Team} from "./model/teams.model";
 import {TeamDetailsComponent} from "../team-details/team-details.component";
 import {TeamButtonDirective} from "../directives/team-button.directive";
+import {TeamService} from "../services/team.service";
 
 @Component({
   selector: 'app-teams',
@@ -23,10 +34,20 @@ export class TeamsComponent {
   // team : Team = new Team(10,"Hungary", 1517.77, "https://www.worldometers.info/img/flags/hu-flag.gif");
 
   /*Mock team list from team-list.ts file*/
-  teams = TEAMS;
+  teams:Team[] = [];
 
   //Add new property to component > this is the selected team
   selectedTeam : Team | undefined;
+
+  clickCounter = signal(0);
+
+  conditionalCount = computed(() => {
+    if (this.clickCounter() % 2 == 0) {
+      return 'The count is even.';
+    } else {
+      return 'The count is odd.';
+    }
+  });
 
   @Input() teamsOfGroup:number[]|undefined;
 
@@ -35,6 +56,8 @@ export class TeamsComponent {
 
   //Viewchildren to access multiple child component > lab 2 page 16
   @ViewChildren("teamDiv") teamDivs!:QueryList<ElementRef>;
+
+  constructor(private teamService: TeamService) {} //Inject service
 
   //Component lifecycle events: ngOnchanges, ngOnInit, ngAfterViewInit
   ngOnChanges(changes: SimpleChanges){
@@ -51,8 +74,14 @@ export class TeamsComponent {
   }
 
   ngOnInit(){
-    console.log("OnInit happened");
+    this.initTeams();
   }
+
+  initTeams(): void {
+    this.teamService.getTeams()
+      .subscribe(alma => this.teams = alma);
+  }
+
 
   //After view init change the left border of the third element > lab 2 page 16
   ngAfterViewInit(): void {
@@ -64,6 +93,7 @@ export class TeamsComponent {
   //Select method > it is bounded to the click event
   onSelect(team : Team){
     this.selectedTeam = team;
+    this.clickCounter.set(this.clickCounter()+1);
   }
 
   //Clear the selected team > lab 2 page 14 - 15
