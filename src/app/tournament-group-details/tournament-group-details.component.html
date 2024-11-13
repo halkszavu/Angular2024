@@ -1,0 +1,5 @@
+@if(group){
+  <h2>{{group.name}} Details</h2>
+  <app-teams [teams]="group.teams"></app-teams>
+}
+<button type="button" (click)="goBack()">Back</button>

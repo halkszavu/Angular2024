@@ -1,18 +1,25 @@
 import { Component } from '@angular/core';
-import {TEAMS} from "../teams/model/team-list";
-import {GROUPS} from "./model/tournament-group-list";
-import {TeamsComponent} from "../teams/teams.component";
+import {GroupService} from "../services/group.service";
+import {TournamentGroup} from "./model/tournament-group.model";
+
 
 @Component({
   selector: 'app-tournament-groups',
-  standalone: true,
-  imports: [TeamsComponent],
   templateUrl: './tournament-groups.component.html',
   styleUrl: './tournament-groups.component.css'
 })
 export class TournamentGroupsComponent {
 
-    teams = TEAMS;
-    groups = GROUPS;
+  groups! : TournamentGroup[];
 
+  constructor(private groupService:GroupService) {
+  }
+
+    ngOnInit(){
+      this.initGroups();
+    }
+
+  private initGroups() {
+    this.groupService.getTournamentGroups().subscribe(groups => this.groups = groups)
+  }
 }

@@ -1,5 +1,5 @@
 <!--Iterate on groups-->
 @for (group of groups; track group.id){
-  <h2>{{group.name}}</h2>
-  <app-teams [teamsOfGroup]="group.teams"></app-teams>
+  <h2 class="group-name" routerLink="group-details/{{group.id}}">{{group.name}}</h2>
+  <app-teams [teams]="group.teams"></app-teams>
 }

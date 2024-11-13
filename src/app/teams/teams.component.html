@@ -15,7 +15,6 @@
 <div style="display: flex">
   <div style="width: 50%">
     @for (team of teams; track team.name; let i = $index) {
-      @if(teamsOfGroup && teamsOfGroup.indexOf(team.id) > -1){
         <div #teamDiv class="teams">
         <!--Event handling onSelect > communicate with .ts code > lab 2 page 4 -->
 <!--        <button type="button"-->
@@ -31,11 +30,8 @@
 <!--                  [ngStyle]="team === selectedTeam ? {color:'#F3F9E7'} : {color:'#7297d6'}"-->
 <!--                  [ngClass]="team === selectedTeam ? 'selected-team' : ''">-->
           <!--Custom attribute directive appTeamButton > lab 2 page 24-->
-          <button type="button"
-                  appTeamButton
-                  (click)="onSelect(team)"
-                  [ngStyle]="team === selectedTeam ? {color:'#F3F9E7'} : {color:'#7297d6'}"
-                  [ngClass]="team === selectedTeam ? 'selected-team' : ''">
+          <button type="button" appTeamButton
+                  routerLink="/details/{{team.id}}">
             <span class="badge">{{i+1}}.</span>
             <span class="name">{{team.name}}</span>
             @if(team.flagPath) {
@@ -45,23 +41,6 @@
             }
           </button>
         </div>
-      }
-    }
-  </div>
-  <div style="width: 50%">
-    <!--Details section > lab 2 page 6-->
-    @if(selectedTeam) {
-      <app-team-details
-        [team]="selectedTeam"(clearDetails)="clearSelectedTeam()"></app-team-details>
-<!--      <div>-->
-<!--        <h2>{{selectedTeam.name | uppercase}} Details</h2>-->
-<!--        <h3>Ranking points: {{selectedTeam.rankingPoints}}</h3>-->
-<!--        <div>-->
-<!--          <label for = "team-ranking">Team Ranking: </label>-->
-<!--          <input id = "team-ranking"-->
-<!--                 [(ngModel)]="selectedTeam.rankingPoints" placeholder="ranking point">-->
-<!--        </div>-->
-<!--      </div>-->
     }
   </div>
 </div>

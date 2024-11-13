@@ -1,11 +1,19 @@
 import { Routes } from '@angular/router';
-import {TournamentGroupsComponent} from "./tournament-groups/tournament-groups.component";
-import {DashboardComponent} from "./dashboard/dashboard.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  {path: "groups", component: TournamentGroupsComponent},
-  {path: "dashboard", component: DashboardComponent},
+  {path: "groups",
+    loadChildren: () =>
+      import('./tournament-groups/tournament-groups.module').then(m =>
+        m.TournamentGroupsModule)},
+  {path: "dashboard",
+    loadComponent: () =>
+      import('./dashboard/dashboard.component').then(m =>
+        m.DashboardComponent)},
+  {path: "details",
+    loadChildren: () =>
+      import('./team-details/team-details.module').then(m =>
+        m.TeamDetailsModule)},
   { path: '**', component: PageNotFoundComponent}
 ];

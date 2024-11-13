@@ -1,7 +1,7 @@
 <h2>Top Teams</h2>
 <div class="team-menu">
   @for(team of teams; track team.name;){
-    <a>
+    <a [routerLink]="['/details/', team.id]">
       {{team.name}} – {{team.rankingPoints}}
     </a>
   }
