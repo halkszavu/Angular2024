@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {TEAMS} from "../teams/model/team-list";
 import {Team} from "../teams/model/teams.model";
-import {Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({

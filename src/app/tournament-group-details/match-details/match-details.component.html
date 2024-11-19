@@ -1,11 +1,5 @@
-@if(group){
-  <h2>{{group.name}} Details</h2>
-  <app-teams [teams]="group.teams"></app-teams>
-}
-
-<h3>Matches</h3>
-@for(match of group.matches; track match.id){
-  <div class="match-button" routerLink="/groups/match-details/{{group.id}}/{{match.id}}">
+@if(match){
+  <div class="match-button">
     <div class="match-date">{{match.startTime}}</div>
     <div class="match-teams">
       <img class="flag" [src]="match.homeTeam.flagPath">
