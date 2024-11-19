@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Location} from "@angular/common";
-import {Match} from "../../model/match.model";
-import {GroupService} from "../../../services/group.service";
+import {GroupService} from "../../../../../services/group.service";
+import {Match} from "../../../../model/match.model";
+
 
 @Component({
   selector: 'app-match-detail',

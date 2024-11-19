@@ -4,7 +4,9 @@ import {TournamentGroupsComponent} from "./tournament-groups.component";
 import {
   TournamentGroupDetailsComponent
 } from "./components/tournament-group-details/tournament-group-details.component";
-import {MatchDetailsComponent} from "./components/match-details/match-details.component";
+import {
+  MatchDetailsComponent
+} from "./components/tournament-group-details/components/match-details/match-details.component";
 
 const routes: Routes = [
   { path: '', component:  TournamentGroupsComponent },
