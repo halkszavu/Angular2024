@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {TournamentGroup} from "../tournament-groups/model/tournament-group.model";
 import {ActivatedRoute} from "@angular/router";
 import { Location } from '@angular/common';
-import {GroupService} from "../services/group.service";
+import {TournamentGroup} from "../../model/tournament-group.model";
+import {GroupService} from "../../../services/group.service";
 
 @Component({
   selector: 'app-tournament-group-details',
