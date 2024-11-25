@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {ReactiveFormDemoComponent} from "./reactive-form-demo/reactive-form-demo.component";
 
 export const routes: Routes = [
+  { path: 'reactive-form', component: ReactiveFormDemoComponent},
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   {path: "groups",
     loadChildren: () =>

@@ -5,11 +5,15 @@ import {TournamentGroupDetailsComponent} from "./tournament-group-details.compon
 import {RouterLink} from "@angular/router";
 import {TeamsModule} from "../../../teams/teams.module";
 import {MatchDetailsComponent} from "./components/match-details/match-details.component";
+import { BetsComponent } from './components/bets/bets.component';
+import {BetResultValidatorDirective} from "./components/bets/validator/bet-result-validator.directive";
 
 @NgModule({
   declarations: [
     TournamentGroupDetailsComponent,
-    MatchDetailsComponent
+    MatchDetailsComponent,
+    BetResultValidatorDirective,
+    BetsComponent
   ],
   imports: [
     FormsModule,
