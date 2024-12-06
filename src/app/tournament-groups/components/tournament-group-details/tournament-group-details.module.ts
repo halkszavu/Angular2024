@@ -7,6 +7,7 @@ import {TeamsModule} from "../../../teams/teams.module";
 import {MatchDetailsComponent} from "./components/match-details/match-details.component";
 import { BetsComponent } from './components/bets/bets.component';
 import {BetResultValidatorDirective} from "./components/bets/validator/bet-result-validator.directive";
+import { LocalTimePipe } from '../../../pipes/local-time.pipe';
 
 @NgModule({
   declarations: [
