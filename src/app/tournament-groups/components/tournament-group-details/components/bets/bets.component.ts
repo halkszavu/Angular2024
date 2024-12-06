@@ -16,8 +16,11 @@ export class BetsComponent {
   @Input("match") match: Match | undefined;
   bet:Bet|undefined;
   public resultTypes = Object.values(ResultType);
+  bets:Bet[] | undefined;
 
   constructor(public betService:BetService) { }
+
+  ngOnInit() : void { this.initbets(this.match?.id);}
 
   onSubmit(betForm: NgForm) {
     if(this.bet){
@@ -38,10 +41,8 @@ export class BetsComponent {
     this.betService.bets.splice(this.betService.bets.indexOf(bet), 1);
   }
 
-  getBets() {
-    return this.betService.bets.filter((b) => b.match?.id ==
-      this.match?.id);
+  initbets(matchId:number|undefined){
+    this.betService.getBetsByMatch(matchId).subscribe(bets => {this.bets = bets;});
   }
-
-
+  
 }

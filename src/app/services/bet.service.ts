@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Bet} from "../tournament-groups/model/bet.model";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ export class BetService {
   bets:Bet[] = [];
   idCounter = 0;
 
-  constructor() { }
+  private betsUrl = 'api/bets';
+
+  constructor(private http: HttpClient) { }
 
   submitBet(bet: Bet) {
     let index = this.bets.map((b) => b.id).indexOf(bet.id);
@@ -18,6 +21,10 @@ export class BetService {
     } else {
       this.bets.push(bet);
     }
+  }
+
+  getBetsByMatch(matchId: number | undefined){
+    return this.http.get<Bet[]>(this.betsUrl + "/" + matchId);
   }
 
 }
