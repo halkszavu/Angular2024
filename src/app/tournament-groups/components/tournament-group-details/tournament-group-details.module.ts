@@ -13,7 +13,8 @@ import {BetResultValidatorDirective} from "./components/bets/validator/bet-resul
     TournamentGroupDetailsComponent,
     MatchDetailsComponent,
     BetResultValidatorDirective,
-    BetsComponent
+    BetsComponent,
+    LocalTimePipe
   ],
   imports: [
     FormsModule,

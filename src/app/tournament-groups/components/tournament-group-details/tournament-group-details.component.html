@@ -4,7 +4,7 @@
   <h3>Matches</h3>
   @for(match of group.matches; track match.id){
     <div class="match-button" routerLink="/groups/match-details/{{group.id}}/{{match.id}}">
-      <div class="match-date">{{match.startTime}}</div>
+      <div class="match-date">{{match.startTime}} - Local Time: {{match.startTime | localTime}}</div>
       <div class="match-teams">
         <img class="flag" [src]="match.homeTeam.flagPath">
         <div style="width: 60%; display: inline-block;">{{match.homeTeam.name}}-{{match.awayTeam.name}}</div>
