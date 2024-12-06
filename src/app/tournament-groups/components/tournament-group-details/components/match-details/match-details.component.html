@@ -8,6 +8,7 @@
     </div>
     <div class="match-date">{{match.stadium}}</div>
   </div>
+  <app-bets [match]="match"></app-bets>
 }
-<app-bets [match]="match"></app-bets>
 <button type="button" (click)="goBack()">Back</button>
+
