@@ -23,7 +23,7 @@
 <div class="container">
   <button type="button" class="btn btn-primary" (click)="addNewBet()">Add new bet</button>
   @if(bet){
-    <form (ngSubmit)="onSubmit(betForm)" #betForm="ngForm" appBetResultValidator>
+    <form (ngSubmit)="onSubmit()" #betForm="ngForm" appBetResultValidator>
       <div class="form-group">
         <label for="name">Username</label>
         <input type="text" class="form-control" id="name" required

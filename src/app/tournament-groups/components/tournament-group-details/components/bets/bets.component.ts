@@ -22,15 +22,20 @@ export class BetsComponent {
 
   ngOnInit() : void { this.initbets(this.match?.id);}
 
-  onSubmit(betForm: NgForm) {
+  onSubmit() {
     if(this.bet){
-      this.betService.submitBet(this.bet);
+      this.betService.submitBet(this.bet, this.match?.id).subscribe(bet => {this.initbets(this.match?.id)});
       this.bet = undefined;
     }
   }
 
   addNewBet() {
-    this.bet = new Bet(this.betService.idCounter++, this.match, new User("",""), new Result(0,0,ResultType.HOME_WIN));
+    this.bet = {
+    id : undefined,
+    match : this.match,
+    userOfBet : new User ("",""),
+    resultOfBet : new Result (0,0, ResultType.HOME_WIN),
+    }
   }
 
   editBet(bet: Bet) {
@@ -38,7 +43,10 @@ export class BetsComponent {
   }
 
   deleteBet(bet: Bet) {
-    this.betService.bets.splice(this.betService.bets.indexOf(bet), 1);
+    this.betService.deleteBet(bet, this.match?.id).subscribe(resp=>
+      {
+        this.initbets(this.match?.id);
+      });
   }
 
   initbets(matchId:number|undefined){
