@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://itk-production-2234.up.railway.app",
+    "target": "http://vps1.karlocai.com:8080",
     "secure": true,
     "changeOrigin": true,
     "pathRewrite": {"^/api": ""}
