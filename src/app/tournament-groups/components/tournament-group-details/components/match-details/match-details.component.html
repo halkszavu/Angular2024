@@ -1,6 +1,6 @@
 @if(match){
   <div class="match-button">
-    <div class="match-date">{{match.startTime}}</div>
+    <div class="match-date">{{match.startTime}} - Localtime:{{match.startTime | localTime}}</div>
     <div class="match-teams">
       <img class="flag" [src]="match.homeTeam.flagPath">
       <div style="width: 60%; display: inline-block;">{{match.homeTeam.name}}-{{match.awayTeam.name}}</div>

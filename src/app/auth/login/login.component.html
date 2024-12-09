@@ -1,0 +1,9 @@
+<h2>Login</h2>
+<p>
+  @if(!authService.isLoggedIn){
+    <button type="button" (click)="login()">Login</button>
+  }
+  @if(authService.isLoggedIn){
+    <button type="button" (click)="logout()">Logout</button>
+  }
+</p>
